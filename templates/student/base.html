@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	
+  <title>Student Login</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+  	$(document).on({
+	    "contextmenu": function(e) {
+	        console.log("ctx menu button:", e.which); 
+
+	        // Stop the context menu
+	        e.preventDefault();
+	    },
+	    "mousedown": function(e) { 
+	        console.log("normal mouse down:", e.which); 
+	    },
+	    "mouseup": function(e) { 
+	        console.log("normal mouse up:", e.which); 
+	    }
+	});
+	var check = function() {
+		if (document.getElementById('new_password').value =="") 
+		{
+		  document.getElementById('message').style.color = 'red';
+		  document.getElementById('message').innerHTML = 'please enter password';
+		} else if(document.getElementById('new_password').value != document.getElementById('con_password').value)
+		{
+			document.getElementById('message').style.color = 'red';
+		  document.getElementById('message').innerHTML = 'not matching';
+	  
+		}
+		else {
+		  document.getElementById('message').style.color = 'green';
+		  document.getElementById('message').innerHTML = 'matching';
+		}
+	  }
+	function checkForm(form)
+	{
+		if(form.username.value == "") {
+		  alert("Error: Username cannot be blank!");
+		  form.username.focus();
+		  return false;
+		}
+		re = /^\w+$/;
+		if(!re.test(form.username.value)) {
+		  alert("Error: Username must contain only letters, numbers and underscores!");
+		  form.username.focus();
+		  return false;
+		}
+	
+		if(form.pwd1.value != "" && form.pwd1.value == form.pwd2.value) {
+		  if(form.pwd1.value.length < 6) {
+			alert("Error: Password must contain at least six characters!");
+			form.pwd1.focus();
+			return false;
+		  }
+		  if(form.pwd1.value == form.username.value) {
+			alert("Error: Password must be different from Username!");
+			form.pwd1.focus();
+			return false;
+		  }
+		  re = /[0-9]/;
+		  if(!re.test(form.pwd1.value)) {
+			alert("Error: password must contain at least one number (0-9)!");
+			form.pwd1.focus();
+			return false;
+		  }
+		  re = /[a-z]/;
+		  if(!re.test(form.pwd1.value)) {
+			alert("Error: password must contain at least one lowercase letter (a-z)!");
+			form.pwd1.focus();
+			return false;
+		  }
+		  re = /[A-Z]/;
+		  if(!re.test(form.pwd1.value)) {
+			alert("Error: password must contain at least one uppercase letter (A-Z)!");
+			form.pwd1.focus();
+			return false;
+		  }
+		} else {
+		  alert("Error: Please check that you've entered and confirmed your password!");
+		  form.pwd1.focus();
+		  return false;
+		}
+	
+		alert("You entered a valid password: " + form.pwd1.value);
+		return true;
+	}
+  </script>
+  <style type="text/css">
+  	body{
+  		background-color: rgba(0,0,0);
+	  }
+	.prac{
+		background-color: #333;
+		color: white;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		padding-left: 40%;
+		padding-right: 40%;
+	}
+  </style>
+</head>
+
+<body>
+	<nav class="navbar navbar-inverse">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>                        
+	      </button>
+	      <!--Student logo-->
+	      <a class="navbar-brand" href="home">Student</a>
+	    </div>
+	    <div class="collapse navbar-collapse" id="myNavbar">
+	      <ul class="nav navbar-nav">
+	      	<!--menu options-->
+	        <li class="active"><a href="home">Home</a></li>
+	        <!--subjects-->
+	        <li class="dropdown">
+	          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Class  <span class="caret"></span></a>
+	          <ul class="dropdown-menu">
+	            <li><a href="student_subject">Student Subjects</a></li>
+	            <li><a href="subject_class">Subject Class Link</a></li>
+	            <li><a href="practical">Practical submission</a></li>
+	            <li><a href="request">Request Class</a></li>
+	            <li><a href="attendance">Attendance</a></li>
+	            <li><a href="chat">ChatBox</a></li>
+	          </ul>
+	        </li>
+	        <!--edit-->
+	        <li><a href="edit">Edit Profile</a></li>
+	      </ul>
+	      <ul class="nav navbar-nav navbar-right">
+	        <li><a name='enrollment' href="#"><span class="glyphicon glyphicon-user"></span> {{user.enrollment}}</a></li>
+	        <li><a href="../logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+	      </ul>
+	    </div>
+	  </div>
+	</nav>
+	<div class="container">
+	{% block content %}
+
+	{% endblock content %}
+	</div>
+</body>
+</html>

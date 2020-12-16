@@ -1,0 +1,13 @@
+{% extends 'student/base.html' %}
+{% block content %}
+	  <h3>Student Subjects</h3>
+	  <table>
+		{% for i in subject %}
+		<tr>
+			<td>
+				{{i.subject}}
+			</td>
+		</tr>
+		{% endfor %}
+	  </table>
+{% endblock content %}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>HOD Login</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style type="text/css">
+  	body{
+  		background-color: rgba(0,0,0);
+  	}
+  </style>
+</head>
+
+<body>
+	<nav class="navbar navbar-inverse">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>                        
+	      </button>
+	      <!--HOD logo-->
+	      <a class="navbar-brand" href="HOD/home">HOD</a>
+	    </div>
+	    <div class="collapse navbar-collapse" id="myNavbar">
+	      <ul class="nav navbar-nav">
+	      	<!--menu options-->
+	        <li class="active"><a href="HOD/home">Home</a></li>
+	        <!--class-->
+	        <li><a href="HOD/class">Class</a></li>
+	        <!--promotion / detaintion-->
+	        <li class="dropdown">
+	         <a href="HOD/promotion">Faculty/Students</a>
+	        </li>
+	        <!--subjects-->
+	        <li class="dropdown">
+	          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Subject  <span class="caret"></span></a>
+	          <ul class="dropdown-menu">
+	            <li><a href="HOD/practical_submit">Practical submission</a></li>
+	            <li><a href="HOD/prac_class">Practical/Weekly Class</a></li>
+	            <li><a href="HOD/attendance">Attendance</a></li>
+	            <li><a href="HOD/request">Requests</a></li>
+	          </ul>
+	        </li>
+	        <!--Add and remove HOD-->
+	       <li class="dropdown">
+	          <a href="../admin">Admin Pannel</a>
+	        </li>
+	      </ul>
+	      <ul class="nav navbar-nav navbar-right">
+	        <li><a href="#"><span class="glyphicon glyphicon-user"></span> {{user.enrollment}}</a></li>
+	        <li><a href="../logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+	      </ul>
+	    </div>
+	  </div>
+	</nav>
+	  
+	<div class="container">
+	  <h3>Collapsible Navbar</h3>
+	  <p>welcome {{user.enrollment}}</p>
+	  <p>Only when the button is clicked, the navigation bar will be displayed.</p>
+	  <p>HOD HOME</p>
+	</div>
+
+</body>
+</html>

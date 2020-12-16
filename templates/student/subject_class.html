@@ -1,0 +1,16 @@
+{% extends 'student/base.html' %}
+{% block content %}
+	  <h3>Class Name</h3>
+	  <table>
+	  {% for i in links %}
+	  <tr>
+		  <td style="padding-right: 10px;">
+			  {{i.classname}}
+		  </td>
+		  <td>
+			{{i.link}}
+		  </td>
+	  </tr>
+	  {% endfor %}
+	</table>
+{% endblock content %}

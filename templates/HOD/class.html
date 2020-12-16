@@ -1,0 +1,20 @@
+{% extends 'HOD/base.html' %}
+
+
+{% block content %}
+<table style="border-style: none;">
+    {% for time in timetable %}
+    <tr>
+        <td>
+            <label>
+                {{time}}
+            </label>
+        </td>
+        <td>
+            <a href="../media/{{time.timetable}}">link</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock content %}

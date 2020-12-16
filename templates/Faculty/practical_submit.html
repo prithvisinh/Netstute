@@ -1,0 +1,23 @@
+{% extends 'Faculty/base.html' %}
+
+
+{% block content %}
+	  <h3>All Submissions</h3>
+	  <table>
+		  {% for i in upload %}
+		  <tr>
+			  <td>
+				  {{i.classname}}
+			  </td>
+		  </tr>
+		  <tr>
+			  <td style="padding-right: 10px;">
+				  {{i.filename}}
+			  </td>
+			  <td>
+				  <a href="../{{i.submission}}">Link</a>
+			  </td>
+		  </tr>
+		  {% endfor %}
+	  </table>
+{% endblock content %}

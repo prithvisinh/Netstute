@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>HOD Login</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+	$(document).on({
+		"contextmenu": function(e) {
+			console.log("ctx menu button:", e.which); 
+
+			// Stop the context menu
+			e.preventDefault();
+		},
+		"mousedown": function(e) { 
+			console.log("normal mouse down:", e.which); 
+		},
+		"mouseup": function(e) { 
+			console.log("normal mouse up:", e.which); 
+		}
+	});
+</script>
+ 
+  <style type="text/css">
+	input::-webkit-outer-spin-button,
+			input::-webkit-inner-spin-button {
+			  -webkit-appearance: none;
+			  margin: 0;
+			}
+
+			/* Firefox */
+			input[type=number] {
+			  -moz-appearance: textfield;
+			}
+  	body{
+  		background-color: rgba(0,0,0);
+  	}
+  	table
+  	{
+  		border-collapse: collapse;
+  		border: 1px solid white;
+  		table-layout: auto;
+		width: 100%;
+		padding-bottom: auto;
+		padding-top: auto; 
+		} 
+
+	th,td {
+		border: none;
+		}
+	  }
+	  .container td,th{
+		  border: none;
+	  }
+	.errorlist{
+		color: black;
+	}
+  </style>
+</head>
+
+<body>
+	<nav class="navbar navbar-inverse">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>                        
+	      </button>
+	      <!--HOD logo-->
+	      <a class="navbar-brand" href="home">HOD</a>
+	    </div>
+	    <div class="collapse navbar-collapse" id="myNavbar">
+	      <ul class="nav navbar-nav">
+	      	<!--menu options-->
+	        <li class="active"><a href="home">Home</a></li>
+	        <!--class-->
+	        <li><a href="class">Class</a></li>
+	        <!--promotion / detaintion-->
+	        <li class="dropdown">
+	          <a href="promotion">Faculty/Students</a>
+	        </li>
+	        <!--subjects-->
+	        <li class="dropdown">
+	          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Subject  <span class="caret"></span></a>
+	          <ul class="dropdown-menu">
+	            <li><a href="practical_submit">Practical submission</a></li>
+	            <li><a href="prac_class">Practical/Weekly Class</a></li>
+	            <li><a href="attendance">Attendance</a></li>
+	            <li><a href="request">Requests</a></li>
+	          </ul>
+	        </li>
+	        <!--Add and remove HOD-->
+	        <li class="dropdown">
+	          <a href="../admin">Admin Pannel</a>
+	        </li>
+	      </ul>
+	      <ul class="nav navbar-nav navbar-right">
+	        <li><a href="#"><span class="glyphicon glyphicon-user"></span> {{user.enrollment}}</a></li>
+	        <li><a href="../logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+	      </ul>
+	    </div>
+	  </div>
+	</nav>
+	  
+	<div class="container">
+		{% block content %}
+
+		{% endblock content %}
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+{% extends 'HOD/base.html' %}
+
+
+{% block content %}
+	  <h3>Faculty</h3>
+	  {% for i in faculty %}
+	  <table style="border: none;">
+	  	<tr>
+	  		<td>
+	  			{{i}}
+	  		</td>
+	  	</tr>
+	  </table>
+	  {% endfor %}
+	  <h3>Student</h3>
+	  {% for i in student %}
+	  <table style="border: none;">
+	  	<td>
+	  		{{i}}
+	  	</td>
+	  </table>
+	  {% endfor %}
+{% endblock content %}

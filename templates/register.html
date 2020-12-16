@@ -1,0 +1,265 @@
+{% load static %}
+
+
+<html>
+<head>
+    <title> Create account </title>
+	<script type="text/javascript">
+		var check = function() {
+			if (document.getElementById('password').value =="") 
+			{
+			  document.getElementById('message').style.color = 'red';
+			  document.getElementById('message').innerHTML = 'please enter password';
+			} else if(document.getElementById('password').value != document.getElementById('confirm_password').value)
+			{
+				document.getElementById('message').style.color = 'red';
+			  document.getElementById('message').innerHTML = 'not matching';
+		  
+			}
+			else {
+			  document.getElementById('message').style.color = 'green';
+			  document.getElementById('message').innerHTML = 'matching';
+			}
+		  }
+		function checkForm(form)
+		{
+			if(form.username.value == "") {
+			  alert("Error: Username cannot be blank!");
+			  form.username.focus();
+			  return false;
+			}
+			re = /^\w+$/;
+			if(!re.test(form.username.value)) {
+			  alert("Error: Username must contain only letters, numbers and underscores!");
+			  form.username.focus();
+			  return false;
+			}
+		
+			if(form.pwd1.value != "" && form.pwd1.value == form.pwd2.value) {
+			  if(form.pwd1.value.length < 6) {
+				alert("Error: Password must contain at least six characters!");
+				form.pwd1.focus();
+				return false;
+			  }
+			  if(form.pwd1.value == form.username.value) {
+				alert("Error: Password must be different from Username!");
+				form.pwd1.focus();
+				return false;
+			  }
+			  re = /[0-9]/;
+			  if(!re.test(form.pwd1.value)) {
+				alert("Error: password must contain at least one number (0-9)!");
+				form.pwd1.focus();
+				return false;
+			  }
+			  re = /[a-z]/;
+			  if(!re.test(form.pwd1.value)) {
+				alert("Error: password must contain at least one lowercase letter (a-z)!");
+				form.pwd1.focus();
+				return false;
+			  }
+			  re = /[A-Z]/;
+			  if(!re.test(form.pwd1.value)) {
+				alert("Error: password must contain at least one uppercase letter (A-Z)!");
+				form.pwd1.focus();
+				return false;
+			  }
+			} else {
+			  alert("Error: Please check that you've entered and confirmed your password!");
+			  form.pwd1.focus();
+			  return false;
+			}
+		
+			alert("You entered a valid password: " + form.pwd1.value);
+			return true;
+		}
+	</script>
+    <style>
+	input::-webkit-outer-spin-button,
+	input::-webkit-inner-spin-button 
+	{
+	   -webkit-appearance: none;
+	   margin: 0;
+	}
+	input[type="number"] {
+	   -moz-appearance: textfield;
+	}
+	body{
+		margin: 0;
+		padding: 0;
+		background-color: rgb(0,0,0);
+		background-size: cover;
+		background-position: center;
+		font-family: sans-serif;
+	}
+	.create_acc-box
+	{
+		padding-top: 5%;
+		padding-left: 35%;
+		padding-right: 35%;
+		padding-bottom: 2%;
+	}
+	.create-group
+	{
+		box-sizing: border-box;
+		background: rgba(255,255,255,.1);
+		color: #fff;
+		padding-top: 1%;
+		padding-left: 30px;
+		padding-right: 30px;
+		padding-bottom: 2%;
+	}
+	.form-feild
+	{
+		display: flex;
+	}
+	.create_acc-box input{
+		background: transparent;
+		outline: none;
+		color: #fff;
+		border: none;
+		margin-bottom: auto;
+		width: 100%;
+		font-size: 100%;
+		padding-right: 10px;
+	}
+	.create_acc-box p{
+		font-weight: bold;
+		height: 1%;
+	}
+	.create_acc-box input[type="text"]
+	{
+		padding-top: 20px;
+		border-bottom: solid;
+	}
+	.create_acc-box input[type="password"]
+	{
+		padding-top: 20px;
+		border-bottom: solid;
+	}
+	.create_acc-box input[type="email"]
+	{
+		padding-top: 20px;
+		border-bottom: solid;
+	}
+	.create_acc-box input[type="number"]
+	{
+		padding-top: 20px;
+		border-bottom: solid;
+	}
+	.create_acc-box select{
+		background: transparent;
+		outline: none;
+		color: #fff;
+		border: none;
+		margin-bottom: auto;
+		margin-top: 15px;
+		margin-right: 10px;
+		margin-left: 10px; 
+		font-size: 100%;
+		padding-right: 10px;
+		border-bottom: solid;
+	}
+	.create_acc-box input[type="submit"]
+	{
+		padding-top: 10px;
+		padding-bottom: 10px;
+		background: #1c8adb;
+		color: #fff;
+		font-size: 100%;
+		border-radius: 20px;
+	}
+	.create_acc-box input[type="submit"]:hover
+	{
+		cursor: pointer;
+		background: #39dc79;
+		color: #000;
+	}
+</style>   
+</head>
+    <body>
+	    <div class="create_acc-box">
+	    	<div class="create-group">
+		        <form action="register" name="fill" method="POST" onsubmit="return checkForm(this);">
+					{% csrf_token %}
+		        	<!--name and lastname-->
+					<div class="form-feild">
+						<div class="form-group">
+							
+							<p>Name</p>
+							<input type="text" name="name" placeholder="Name">
+
+						</div>
+						<div class="form-group">
+							
+							<p>LastName</p>
+							<input type="text" name="LastName" placeholder="LastName">
+
+						</div>
+					</div>
+					<!--enrollment number-->
+					<div class="form-feild">
+						<div class="form-group">
+							
+							<p>Enrollment Number</p>
+		            		<input type="number" name="Enrollment_number" placeholder="Enrollment number">
+
+						</div>
+					</div>
+					<!--email-->
+					<div class="form-feild">
+						<div class="form-group">
+							
+							<p>Email</p>
+		            		<input type="email" name="Email" placeholder="Email">
+
+						</div>
+					</div>
+					<!--password and confirm password-->
+					<div class="form-feild">
+						<div class="form-group">
+							
+							<p>Password</p>
+		            		<input name="password" id="password" type="password" placeholder="Enter Password" onkeyup='check();' />
+						</div>
+						<div class="form-group">
+							
+							<p>Confirm Password</p>
+		            		<input type="password" name="confirm_password" id="confirm_password" placeholder="confirm password" onkeyup='check();' /> 
+		            		<span id='message'></span>
+
+						</div>
+					</div>
+					<!--submit-->
+					<div class="form-feild">
+						<div class="form-group" >
+							
+							<input type="submit" name="Submit" value="Submit">  
+
+						</div>
+					</div>
+					<!--or-->
+					<div class="form-feild">
+						<div class="form-group">
+							
+							<p>or</p> 
+							
+						</div>
+					</div>
+				</form>
+				<div class="form-feild">
+					<div class="form-group">
+							
+						<form method="post" action="login">
+
+							{% csrf_token %}
+		        			<input type="submit" id="Login" value="Login">
+		        	
+		        		</form>  
+							
+					</div>
+				</div>
+			</div>
+	    </div>
+    </body>
+</html>

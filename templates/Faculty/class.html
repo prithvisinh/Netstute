@@ -1,0 +1,31 @@
+{% extends 'Faculty/base.html' %}
+
+
+{% block content %}
+	  <h3>Faculty</h3>
+	  <table>
+		  {% for i in fac %}
+		  <tr>
+			  <td style="padding-right: 10px;">
+				  {{i.Enrollment}}
+			  </td>
+			  <td>
+				  <a href="../{{i.timetable}}">Link</a>
+			  </td>
+		  </tr>
+	  </table>
+		  {% endfor %}
+		<h3>Students</h3>
+		<table>
+		  {% for i in stu %}
+		  <tr>
+			  <td style="padding-right: 10px;">
+				  {{i.Field}}
+			  </td>
+			  <td>
+				<a href="../{{i.timetable}}">Link</a>
+			  </td>
+		  </tr>
+		  {% endfor %}
+	  </table>
+{% endblock content %}

@@ -1,0 +1,20 @@
+{% extends 'HOD/base.html' %}
+
+
+{% block content %}
+	  <h3>Lectures</h3>
+	  <p>
+		  <table>
+			  {% for i in lecture %}
+			  <tr style="text-align: center;">
+				  <td>
+					  {{i}}
+				  </td>
+				  <td>
+					<a href="../media/{{i.video}}">link</a>
+				  </td>
+			  </tr>
+			  {% endfor %}
+		  </table>
+	  </p>
+{% endblock content %}

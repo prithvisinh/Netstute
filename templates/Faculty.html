@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Faculty Login</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style type="text/css">
+  	body{
+  		background-color: rgba(0,0,0);
+  	}
+  </style>
+</head>
+
+<body>
+	<nav class="navbar navbar-inverse">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>                        
+	      </button>
+	      <!--Faculty logo-->
+	      <a class="navbar-brand" href="Faculty/home">Faculty</a>
+	    </div>
+	    <div class="collapse navbar-collapse" id="myNavbar">
+	      <ul class="nav navbar-nav">
+	      	<!--menu options-->
+	        <li class="active"><a href="Faculty/home">Home</a></li>
+	        <!--class-->
+	        <li><a href="Faculty/class">Class</a></li>
+	        <!--promotion / detaintion-->
+	        <li class="dropdown">
+	          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Promotion / detain  <span class="caret"></span></a>
+	          <ul class="dropdown-menu">
+	            <li><a href="Faculty/add">Add Student</a></li>
+	            <li><a href="Faculty/promote">Promote Student</a></li>
+	            <li><a href="Faculty/detain">detain Student</a></li>
+	          </ul>
+	        </li>
+	        <!--subjects-->
+	        <li class="dropdown">
+	          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Subject  <span class="caret"></span></a>
+	          <ul class="dropdown-menu">
+	            <li><a href="Faculty/faculty_subject">Faculty Subjects</a></li>
+	            <li><a href="Faculty/subject_upload">Subject Upload</a></li>
+	            <li><a href="Faculty/practical_submit">Practical submission</a></li>
+	            <li><a href="Faculty/prac_class">Practical/Weekly Class</a></li>
+	            <li><a href="Faculty/attendance">Attendance</a></li>
+	            <li><a href="Faculty/request">Requests</a></li>
+	          </ul>
+	        </li>
+	        <!--edit-->
+	        <li><a href="Faculty/edit">Edit Profile</a></li>
+	      </ul>
+	      <ul class="nav navbar-nav navbar-right">
+	        <li><a href="#"><span class="glyphicon glyphicon-user"></span>{{user.enrollment}}</a></li>
+	        <li><a href="../logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+	      </ul>
+	    </div>
+	  </div>
+	</nav>
+	  
+	<div class="container">
+	  <h3>Collapsible Navbar</h3>
+	  <p>In this example, the navigation bar is hidden on small screens and replaced by a button in the top right corner (try to re-size this window).
+	  <p>Only when the button is clicked, the navigation bar will be displayed.</p>
+	  <p>Faculty HOME</p>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+{% extends 'HOD/base.html' %}
+
+
+{% block content %}
+	  <h3>Practical Submit</h3>
+	  {% for i in sub %}
+    <tr>
+        <td>
+            <label>
+                {{i}}
+            </label>
+        </td>
+        <td>
+            <a href="../media/submit/{{i.sub}}">link</a>
+        </td>
+    </tr>
+    {% endfor %}
+{% endblock content %}

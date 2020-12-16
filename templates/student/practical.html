@@ -1,0 +1,57 @@
+{% extends 'student/base.html' %}
+{% block content %}
+<div class='prac' style="color: black;">
+	  <h3>Practical upload</h3>
+	  <table>
+		<tr>
+			<td>
+				{{prac.classname.label_tag}}
+			</td>
+			<td>
+				{{prac.classname}}
+			</td>
+		</tr>
+		<tr>
+			<td>
+				{{prac.filename.label_tag}}
+			</td>
+			<td>
+				{{prac.filename}}
+			</td>
+		</tr>
+		<tr>
+			<td>
+				{{prac.submission.label_tag}}
+			</td>
+			<td>
+				{{prac.submission}}
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<button type="submit" style="color: black;">Submit</button>
+			</td>
+		</tr>
+	  </table>
+</div>
+<div style="padding-top: 10px;">
+</div>
+<div class="prac" style="padding-top: 10px;">
+	<table>
+		<tr>
+			<td>
+				<h3>
+					Practical Submit
+				</h3>
+			</td>
+		</tr>
+		{% for i in upload %}
+		<tr>
+			<td>
+				{{i.submission}}
+			</td>
+		</tr>
+		{% endfor %}
+	</table>
+</div>
+{% endblock content %}

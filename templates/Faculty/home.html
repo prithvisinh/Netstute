@@ -1,0 +1,40 @@
+{% extends 'Faculty/base.html' %}
+
+
+{% block content %}
+<table>
+	{% for i in classname %}
+	<tr>
+		<td>
+			<h2>
+				{{i.classname}}
+			</h2>
+		</td>
+		<td>
+			<h2>
+				: {{i.field}}
+			</h2>
+		</td>
+	</tr>
+</table>
+	{% for j in upload %}
+<table>
+	<tr>
+		<td>
+			<h3>
+				{{j.subject}}
+			</h3>
+		</td>
+	</tr>
+	<tr>
+		<td style="padding-right: 10px;">
+			{{j.filename}}
+		</td>
+		<td>
+			<a href="../{{j.video}}">Link</a>
+		</td>
+	</tr>
+</table>
+	{% endfor %}
+	{% endfor %}
+{% endblock content %}

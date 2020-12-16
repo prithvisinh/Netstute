@@ -1,0 +1,37 @@
+{% extends 'student/base.html' %}
+{% block content %}
+	  <h3>Password</h3>
+	  <div class='prac'>
+		  <table>
+			  <tr>
+				  <td style="padding-right:10px;padding-bottom: 10px;">
+					  Password
+				  </td>
+				  <td style="padding-bottom: 10px;">
+					  <input type="password" name="password" id="password" style="color: black;">
+				  </td>
+			  </tr>
+			  <tr>
+				<td style="padding-right:10px;padding-bottom: 10px;">
+					New Password
+				</td>
+				<td style="padding-bottom: 10px;">
+					<input type="password" name="new_password" id="new_password" style="color: black;" onkeyup='check();'>
+				</td>
+			</tr>
+			<tr>
+				<td style="padding-right:10px;padding-bottom: 10px;">
+					Confirm Password
+				</td>
+				<td style="padding-bottom: 10px;">
+					<input type="password" name="con_password" id="con_password" style="color: black;" onkeyup='check();'>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="submit" value="Submit" style="color: black;">
+				</td>
+			</tr>
+		  </table>
+	  </div>
+{% endblock content %}
